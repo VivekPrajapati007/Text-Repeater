@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Duplicator</title>
+  <style>
+   body {
+  background-color: lightgray;
+  font-family: Arial, sans-serif;
+}
+
+#greet {
+  text-align: center;
+}
+
+#btn {
+  font-size: 18px;
+  padding: 12px;
+  background-color: blueviolet;
+  color: white;
+  border: 2px solid black;
+}
+
+#detail {
+  font-size: 20px;
+}
+
+.get {
+  font-size: 18px;
+}
+
+#text {
+  height: 20px;
+  padding: 5px;
+  width: 300px;
+}
+
+#num {
+  height: 20px;
+  width: 80px;
+  padding: 5px;
+}
+
+#outputSection {
+  display: none;
+  margin-top: 20px;
+}
+
+#result {
+  margin: 8px 0 8px 20px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+#dup {
+  text-align: center;
+}
+
+#border {
+  border: 2px dashed black;
+  padding: 10px;
+  background-color: lightgrey;
+}
+
+#copyBtn {
+  font-size: 18px;
+  padding: 8px 10px 8px 10px;
+  background-color: blueviolet;
+  color: white;
+  border: 2px solid black;
+  margin-top: 10px;
+}
+
+#border {
+    border: 2px dashed black;
+    padding: 15px 0 15px 0;
+}
+
+.cen {
+    text-align: center;
+}
+
+#insta {
+    font-size: 18px;
+    background-color: blueviolet;
+    padding: 10px;
+    color: white;
+    border: 2px solid black;
+}
+
+.bord {
+    border: 2px dashed black;
+    padding: 0px 0 10px 0;
+}
+
+.enter {
+    font-size: 18px;
+}
+  </style>
+</head>
+<body>
+  <h1 class="cen">Text Repeater
+  by ᎮᏒꫝᎫꫝᎮꫝƬɪ༒ᏙϟᏙΣᏦ</h1>
+  <p><b>Instruction:</b> Enter The Text You Want To Duplicate And Set The Number Of Repetition And Click On Generate Button</p>
+  
+  <form>
+    <fieldset>
+      <legend class="enter">Enter Details</legend>
+      <br>
+      <label class="enter">Enter Text: </label>
+      <input type="text" id="text"> <br>
+      <br>
+      <br>
+      <label class="enter">Number Of Repetition: </label>
+      <input id="num" type="number"><br>
+      <br>
+      <div class="cen">
+       <button type="button" id="btn">Generate</button></div>
+    </fieldset>
+  </form>
+  <div id="outputSection">
+   <br>
+   <h2 class="cen">Repeated Text</h2>
+   <div id="border">
+    <div id="result"></div>
+    <div class="cen"><button type="button" id="copyBtn">Copy</button></div>
+   </div>
+  </div>
+  <br>
+  <br>
+  <div class="cen bord">
+   <h2>Made By ᎮᏒꫝᎫꫝᎮꫝƬɪ༒ᏙϟᏙΣᏦ</h2>
+   <a href="https://www.instagram.com/prajapati_vivek_7007" target="_blank"><button id="insta">Insta Id</button></a>
+  </div>
+  <script>
+   document.getElementById("btn").onclick = function() {
+  let text = document.getElementById("text").value;
+  let num = document.getElementById("num").value;
+  
+  if(text === "" || num === "") {
+    alert("Please Enter The Details");
+    return;
+  }
+  
+  let result = "";
+  for(let i = 0; i < num; i++) {
+    result += text + "\n";
+  }
+  
+  document.getElementById("result").innerText = result;
+  document.getElementById("outputSection").style.display = "block";
+}
+
+document.getElementById("copyBtn").onclick = function() {
+  let resultText = document.getElementById("result").innerText;
+  
+  navigator.clipboard.writeText(resultText).then(function() {
+    alert("Copied! ✅");
+  });
+}
+  </script>
+</body>
+</html>
